@@ -2,7 +2,7 @@
 # for your architecture here, so that we can use it for
 # building everything else.
 
-include ../build/Makefile-vars
+include ../Makefile-vars-build
 
 # Find the latest version at https://ziglang.org/download/
 
@@ -41,7 +41,7 @@ TARBALL = ${UPSTREAM}/zig-${OS}-${ARCH}-${VERSION}.tar.xz
 
 all: ${DIST_NATIVE}/.${VERSION} ${BIN}/cowasm-cc ${BIN}/cowasm-c++ ${BIN}/cowasm-zig ${BIN}/zig
 
-include ../build/Makefile-rules
+include ../../Makefile-rules
 
 ${DIST_NATIVE}/.${VERSION}: ${TARBALL}
 	rm -rf ${DIST_NATIVE}

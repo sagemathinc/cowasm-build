@@ -2,7 +2,7 @@
 # for your architecture here, so that we can use it for
 # building everything else.
 
-include ../build/Makefile-vars
+include ../Makefile-vars-build
 
 # Find the latest version at https://nodejs.org/dist/latest/
 VERSION = 19.1.0
@@ -20,7 +20,7 @@ OS = $(shell uname -s  | sed s/Darwin/darwin/ | sed s/Linux/linux/)
 TARBALL = ${UPSTREAM}/node-v${VERSION}-${OS}-${ARCH}.tar.xz
 URL =  https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-${OS}-${ARCH}.tar.xz
 
-include ../build/Makefile-rules
+include ../../Makefile-rules
 
 ${DIST_NATIVE}/.${VERSION}: ${TARBALL}
 	rm -rf ${DIST_NATIVE}
