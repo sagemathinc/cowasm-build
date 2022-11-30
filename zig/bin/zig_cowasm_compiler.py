@@ -72,6 +72,18 @@ SOURCE_EXTENSIONS = SOURCE_EXTENSIONS_CPP.union(SOURCE_EXTENSIONS_C).union(
     SOURCE_EXTENSIONS_ZIG)
 
 
+def strip_isys():
+    # Some build systems, e.g., cmake will sometimes try to be too clever and add -isystem and -isysroot,
+    # which messed up building using WebAssembly.  We strip them.
+    i = len(sys.argv) - 1
+    while i >= 0:
+        if sys.argv[i] == '-isystem' or sys.argv[i] == '-isysroot':
+            del sys.argv[i+1]
+            del sys.argv[i]
+        i -= 1
+
+strip_isys()
+
 def is_source(filename):
     ext = os.path.splitext(filename)[1].lower()
     return ext in SOURCE_EXTENSIONS
