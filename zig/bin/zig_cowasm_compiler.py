@@ -250,7 +250,10 @@ if '-c' in sys.argv or no_input or get_output_name().endswith('.o'):
 
     # building object files from source, so don't have to do the extra wasm-ld step
     # below, which is really complicated
-    run(sys.argv + FLAGS)
+    if no_input:
+        run(sys.argv)
+    else:
+        run(sys.argv + FLAGS)
     sys.exit(0)
 
 # COMPILE any sources, and definitely ALSO LINK (explicitly calling "zig wasm-ld")
