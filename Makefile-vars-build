@@ -1,6 +1,7 @@
 # This is a bootstrap version of Makefile-vars, just for installing some binaries.
 
 CWD:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+SRC = ${CWD}/src
 PACKAGES = ${CWD}/../../..
 UPSTREAM = ${PACKAGES}/../upstream/sources
 BIN = ${PACKAGES}/../bin
