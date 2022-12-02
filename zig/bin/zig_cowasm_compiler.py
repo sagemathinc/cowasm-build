@@ -1,8 +1,9 @@
-#!/usr/bin/env python3 -E
+#!/usr/bin/env -S python3 -E
 
 # Note -- we use -E to ignore env variables, since this is often being run
 # as part of building other things involving python, and env variables could
-# potentially cause trouble.
+# potentially cause trouble. The -S is because there are now more than one
+# arguments to /usr/bin/env, and on some systems the -S is needed.
 
 """
 Use this wrapper to build position independent Zig/C/C++ code (-fPIC) using zig.
